@@ -8,6 +8,7 @@ const getAll = catchError(async(req, res) => {
     const { id } = req.user
     const purchase = await Purchase.findAll({
         include: [Product],
+        include: [Image],
         where: { userId: id }
     });
     return res.json(purchase)
